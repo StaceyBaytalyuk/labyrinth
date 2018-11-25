@@ -1,15 +1,24 @@
 #include "StatusBar.h"
 #include <iostream>
+#include <grx20.h>
+#include <grxkeys.h>
+
 using namespace std;
 
 StatusBar::StatusBar() {
     cout << "StatusBar is created!" << endl;
     _time = 0;
     _stars = 0;
+    _size = 60;
 }
 
 StatusBar::~StatusBar() {
     cout << "StatusBar is destroyed!" << endl;
+}
+
+void StatusBar::show() {
+    Visible::show();
+    GrLine(0, _size+1, GrMaxX(), _size+1, GrBlack());
 }
 
 void StatusBar::addStar() {
