@@ -8,12 +8,12 @@
 
 class GameField : public Visible {
 public:
-    GameField();
+    GameField(StatusBar *status);
     ~GameField();
     void show();
     void hide();
     int run();
-    void set_status(StatusBar *status) { _status = status; _hero.set_statusSize(_status->get_size()); }
+    //void set_status(StatusBar *status) { _status = status; _hero.set_statusSize(_status->get_size()); }
     void reset();
     int get_size() const {
         return _size;

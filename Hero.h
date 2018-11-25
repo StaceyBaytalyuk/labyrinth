@@ -1,17 +1,18 @@
 #ifndef OOP_HERO_H
 #define OOP_HERO_H
 
-#include "Visible.h"
+#include "Movable.h"
 
-class Hero : public Visible {
+class Hero : public Movable {
 public:
-    Hero(int x=1, int y=3, int cellSize=30, int statusSize=60);
+    Hero(int cellSize=30, int statusSize=60, int x=1, int y=3);
     ~Hero();
     void move(int x, int y);
     int get_x() { return _x; }
     int get_y() { return _y; }
     void show();
 
+/*
     void set_cellSize(int cellSize) {
         _cellSize = cellSize;
     }
@@ -19,6 +20,7 @@ public:
     void set_statusSize(int statusSize) {
         _statusSize = statusSize;
     }
+*/
 
 private:
     int _cellSize;

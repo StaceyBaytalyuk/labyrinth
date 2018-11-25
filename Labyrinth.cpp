@@ -4,10 +4,9 @@
 #include <grxkeys.h>
 using namespace std;
 
-Labyrinth::Labyrinth() {
-    cout << "Labyrinth is created!" << endl;
-    _game.set_status(&_status); //ассоциация
-}
+Labyrinth::Labyrinth() :
+_status(), _game(&_status)
+{ cout << "Labyrinth is created!" << endl; }
 
 Labyrinth::~Labyrinth() {
     cout << "Labyrinth is destroyed!" << endl;

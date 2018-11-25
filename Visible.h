@@ -1,26 +1,16 @@
-//
-// Created by GERL on 22.11.2018.
-//
-
 #ifndef OOP_VISIBLE_H
 #define OOP_VISIBLE_H
-
 
 class Visible {
 public:
     Visible() {}
-
-    virtual ~Visible() {
-
-    }
-    void show(){ pokazivaetsia = true; }
-    void hide(){ pokazivaetsia = false; }
-
-    bool isShow() { return pokazivaetsia; }
+    virtual ~Visible() {}
+    void show(){ _shown = true; }
+    void hide(){ _shown = false; }
+    bool isShown() { return _shown; }
 
 private:
-    bool pokazivaetsia;
+    bool _shown;
 };
-
 
 #endif //OOP_VISIBLE_H
