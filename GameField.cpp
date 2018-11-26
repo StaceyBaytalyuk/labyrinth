@@ -20,6 +20,9 @@ int GameField::run() {
     //start time
     int time = clock();
     while (true) {
+        _cell[_enemy.get_y()][_enemy.get_x()].toDefault();
+        _enemy.move();
+        _cell[_enemy.get_y()][_enemy.get_x()].set_currentValue(-2);
         int x = _hero.get_x();
         int y = _hero.get_y();
         int res = 0;
@@ -63,7 +66,7 @@ int GameField::run() {
 /** @return -1 loss, 1 win, 0 continue game*/
 int GameField::_checkCell(int x, int y) {
     int value = _cell[y][x].get_currentValue();
-    if ( value == -1 )
+    if ( value == -1 || value == -2)
         return -1;
     else if ( value == 1 )
         _hero.move(x, y);
@@ -109,6 +112,8 @@ void GameField::show() {
             int value = _cell[i][j].get_currentValue();
             if (value==-1) {
                 GrTextXY(_cellSize*j+j+0.35*_cellSize, _cellSize*i+i+statusSize+0.35*_cellSize, "O", GrBlack(), GrWhite());
+            } else if (value==-2) {
+                GrTextXY(_cellSize*j+j+0.35*_cellSize, _cellSize*i+i+statusSize+0.35*_cellSize, "E", GrBlack(), GrWhite());
             }
             else if (value==0) {
                 GrTextXY(_cellSize*j+j+0.35*_cellSize, _cellSize*i+i+statusSize+0.35*_cellSize, "#", GrBlack(), GrWhite());
@@ -123,6 +128,7 @@ void GameField::show() {
     }
 
     _hero.show();
+    _enemy.show();
 }
 
 void GameField::_takeStar(int x, int y) {

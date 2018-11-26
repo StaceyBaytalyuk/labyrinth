@@ -4,7 +4,8 @@
 #include "StatusBar.h"
 #include "Cell.h"
 #include "Hero.h"
-#include "Visible.h"
+#include "Enemy.h"
+
 
 class GameField : public Visible {
 public:
@@ -39,6 +40,7 @@ private:
             {0, 0, 0, 0, 0}
     };
     Hero _hero;
+    EnemyHoriz _enemy;
 
 };
 
