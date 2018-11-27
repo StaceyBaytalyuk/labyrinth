@@ -5,22 +5,12 @@
 
 class Hero : public Movable {
 public:
-    Hero(int cellSize=30, int statusSize=60, int x=1, int y=3);
+    Hero(int cellSize=30, int statusSize=60, int x=1, int y=10);
     ~Hero();
     void move(int x, int y);
     int get_x() { return _x; }
     int get_y() { return _y; }
     void show();
-
-/*
-    void set_cellSize(int cellSize) {
-        _cellSize = cellSize;
-    }
-
-    void set_statusSize(int statusSize) {
-        _statusSize = statusSize;
-    }
-*/
 
 private:
     int _cellSize;

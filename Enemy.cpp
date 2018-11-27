@@ -10,6 +10,22 @@ void Enemy::show() {
     GrTextXY(_cellSize*_x+0.45*_cellSize, _cellSize*_y+_statusSize+0.45*_cellSize, "E", GrBlack(), GrWhite());
 }
 
+EnemyHoriz::EnemyHoriz(int x, int y, int beg, int end) {
+    _x = x;
+    _y = y;
+    _begin = beg;
+    _end = end;
+    _direction = true;
+}
+
+EnemyVertic::EnemyVertic(int x, int y, int beg, int end) {
+    _x = x;
+    _y = y;
+    _begin = beg;
+    _end = end;
+    _direction = true;
+}
+
 void EnemyHoriz::move() {
     if ( _x == _begin ) _direction = true;
     else if ( _x == _end ) _direction = false;
@@ -24,14 +40,16 @@ void EnemyHoriz::move() {
     }
 }
 
-EnemyHoriz::EnemyHoriz(int x, int y, int beg, int end, int cellSize, int statusSize) {
-    _x = x;
-    _y = y;
-    _begin = beg;
-    _end = end;
-    _direction = true;
-}
+void EnemyVertic::move() {
+    if ( _y == _begin ) _direction = true;
+    else if ( _y == _end ) _direction = false;
 
-void EnemyHoriz::show() {
-    Enemy::show();
+    if (_direction) {
+        _y--;
+        Enemy::move(get_x(), _y);
+    }
+    else {
+        _y++;
+        Enemy::move(get_x(), _y);
+    }
 }

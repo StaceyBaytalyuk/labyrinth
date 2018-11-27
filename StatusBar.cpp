@@ -66,8 +66,8 @@ void StatusBar::win(int time) {
 
 int StatusBar::_countScore() {
     int timeBonus = 0;
-    if ( _time<25 ) timeBonus = 50;
-    else if ( _time>=25 && _time<=60 ) timeBonus = 25;
+    if ( _time<=15 ) timeBonus = 50;
+    else if ( _time>15 && _time<=25 ) timeBonus = 25;
     return 10*_stars + timeBonus;
 }
 

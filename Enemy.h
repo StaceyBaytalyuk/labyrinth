@@ -18,23 +18,22 @@ protected:
     bool _direction;
     int _begin;
     int _end;
-    int _cellSize;
-    int _statusSize;
+    int _cellSize=30;
+    int _statusSize=60;
 };
 
-class EnemyHoriz : public Enemy {
+class EnemyHoriz : virtual public Enemy {
 public:
-    EnemyHoriz(int x=1, int y=2, int beg=1, int end=3, int cellSize=30, int statusSize=60);
+    EnemyHoriz(int x, int y, int beg, int end);
     ~EnemyHoriz() {}
     void move();
-    void show();
 };
 
-class EnemyVertic : public Enemy {
+class EnemyVertic : virtual public Enemy {
 public:
-    EnemyVertic(int x, int y, int beg, int end, int cellSize=30, int statusSize=60);
+    EnemyVertic(int x, int y, int beg, int end);
     ~EnemyVertic() {};
-    void move(int y) { Enemy::move(get_x(), y); }
+    void move();
 };
 
 #endif //OOP_ENEMY_H

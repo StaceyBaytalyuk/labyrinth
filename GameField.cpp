@@ -7,8 +7,10 @@
 using namespace std;
 
 GameField::GameField(StatusBar *status) :
-_status(status), _size(5), _cellSize(30)
-{ cout << "GameField is created!" << endl; }
+_status(status), _size(12), _cellSize(30), _e1(1, 1, 1, 9), _e2(1, 7, 1, 8), _e3(10, 10, 10, 2)
+{
+    cout << "GameField is created!" << endl;
+}
 
 GameField::~GameField() {
     _status = nullptr;
@@ -54,15 +56,48 @@ int GameField::run() {
             case 'r': return 2;
             case 'q': return 3;
         }
-        //стрёрли предыдущ положение
-        x = _enemy.get_x();
-        y = _enemy.get_y();
+
+        x = _e1.get_x();
+        y = _e1.get_y();
         _cell[y][x].toDefault();
-        _enemy.move();
+        _e1.move();
         //нарисов на новом месте
-        x = _enemy.get_x();
-        y = _enemy.get_y();
+        x = _e1.get_x();
+        y = _e1.get_y();
         _cell[y][x].set_currentValue(-2);
+
+
+        x = _e2.get_x();
+        y = _e2.get_y();
+        _cell[y][x].toDefault();
+        _e2.move();
+        //нарисов на новом месте
+        x = _e2.get_x();
+        y = _e2.get_y();
+        _cell[y][x].set_currentValue(-2);
+
+
+        x = _e3.get_x();
+        y = _e3.get_y();
+        _cell[y][x].toDefault();
+        _e3.move();
+        //нарисов на новом месте
+        x = _e3.get_x();
+        y = _e3.get_y();
+        _cell[y][x].set_currentValue(-2);
+
+/*        //стрёрли предыдущ положение
+        for(int i=0; i<3; i++){
+            x = _enemy[i].get_x();
+            y = _enemy[i].get_y();
+            _cell[y][x].toDefault();
+            _enemy[i].move();
+            //нарисов на новом месте
+            x = _enemy.get_x();
+            y = _enemy.get_y();
+            _cell[y][x].set_currentValue(-2);
+        }*/
+
 
         x = _hero.get_x();
         y = _hero.get_y();
@@ -105,7 +140,10 @@ void GameField::reset() {
             _cell[i][j].toDefault();
         }
     }
-    _hero.move(1, 3);//TODO заменить координаты, дописать врагов
+    _hero.move(1, 10);
+    _e1.Enemy::move(1, 1);
+    _e2.Enemy::move(1, 7);
+    _e3.Enemy::move(10, 10);
 }
 
 void GameField::hide() {
@@ -148,10 +186,13 @@ void GameField::show() {
     }
 
     _hero.show();
-    _enemy.show();
+    _e1.show();
+    _e2.show();
+    _e3.show();
 }
 
 void GameField::_takeStar(int x, int y) {
     _status->addStar();
-    _cell[y][x].set_currentValue(1);
+    _cell[y][x].set_defaultValue(1);
+    _cell[y][x].toDefault();
 }
