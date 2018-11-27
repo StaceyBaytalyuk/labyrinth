@@ -20,9 +20,16 @@ int GameField::run() {
     //start time
     int time = clock();
     while (true) {
-        _cell[_enemy.get_y()][_enemy.get_x()].toDefault();
+/*        //стрёрли предыдущ положение
+        int x = _enemy.get_x();
+        int y = _enemy.get_y();
+        _cell[y][x].toDefault();
         _enemy.move();
-        _cell[_enemy.get_y()][_enemy.get_x()].set_currentValue(-2);
+        //нарисов на новом месте
+        x = _enemy.get_x();
+        y = _enemy.get_y();
+        _cell[y][x].set_currentValue(-2);*/
+
         int x = _hero.get_x();
         int y = _hero.get_y();
         int res = 0;
@@ -47,6 +54,19 @@ int GameField::run() {
             case 'r': return 2;
             case 'q': return 3;
         }
+        //стрёрли предыдущ положение
+        x = _enemy.get_x();
+        y = _enemy.get_y();
+        _cell[y][x].toDefault();
+        _enemy.move();
+        //нарисов на новом месте
+        x = _enemy.get_x();
+        y = _enemy.get_y();
+        _cell[y][x].set_currentValue(-2);
+
+        x = _hero.get_x();
+        y = _hero.get_y();
+        if(_cell[y][x].get_currentValue()==-2) return 1;
         if(res==1) {
             cout << fixed << setprecision(5);
             cout << "Runtime: " <<  (clock() - time) / CLOCKS_PER_SEC << endl;
