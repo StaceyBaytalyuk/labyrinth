@@ -5,8 +5,8 @@
 
 class Visible {
 public:
-    Visible() {std::cout << "Visible created!"<<std::endl;}
-    virtual ~Visible() {std::cout << "Visible deleted!"<<std::endl;}
+    Visible() {}
+    virtual ~Visible() {}
     void show(){ _shown = true; }
     void hide(){ _shown = false; }
     bool isShown() { return _shown; }

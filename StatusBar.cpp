@@ -3,21 +3,13 @@
 #include <grx20.h>
 #include <grxkeys.h>
 #include <cstring>
-
 using namespace std;
-
-StatusBar::StatusBar() :
-_time(0), _stars(0), _size(60)
-{ cout << "StatusBar is created!" << endl; }
-
-StatusBar::~StatusBar() {
-    cout << "StatusBar is destroyed!" << endl;
-}
 
 void StatusBar::show() {
     Visible::show();
     GrLine(0, _size+1, GrMaxX(), _size+1, GrBlack());
     GrTextXY(0.3*GrMaxX(), 0.5*_size, "Stars: ", GrBlack(), GrWhite());
+
     switch (_stars) {
         case 0: {
             GrTextXY(0.65*GrMaxX(), 0.5*_size, "0", GrBlack(), GrWhite());
@@ -44,10 +36,6 @@ void StatusBar::show() {
             break;
         }
     }
-}
-
-void StatusBar::addStar() {
-    _stars++;
 }
 
 void StatusBar::loss() {

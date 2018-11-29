@@ -5,20 +5,17 @@
 
 class StatusBar : public Visible {
 public:
-    StatusBar();
-    ~StatusBar();
+    StatusBar() : _time(0), _stars(0), _size(60) {}
+    ~StatusBar() {}
     void show();
-    void addStar();
+    void addStar() { _stars++; }
     void win(int time);
     void loss();
     void reset();
-    int get_size() const {
-        return _size;
-    }
+    int get_size() const { return _size; }
 
 private:
     int _countScore();
-
     int _time;
     int _stars;
     int _size;

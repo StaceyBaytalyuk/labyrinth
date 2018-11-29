@@ -5,8 +5,8 @@
 
 class Movable : public Visible {
 public:
-    Movable() {std::cout << "Movable created!"<<std::endl;}
-    virtual ~Movable() {std::cout << "Movable deleted!"<<std::endl;}
+    Movable() {}
+    virtual ~Movable() {}
     void move(int x, int y) { _x=x; _y=y; }
 
 protected:

@@ -5,8 +5,8 @@
 
 class Labyrinth {
 public:
-    Labyrinth();
-    ~Labyrinth();
+    Labyrinth() : _status(), _game(&_status) {}
+    ~Labyrinth() {}
     int run();
 
 private:

@@ -13,7 +13,6 @@ public:
     void show();
     void hide();
     int run();
-    //void set_status(StatusBar *status) { _status = status; _hero.set_statusSize(_status->get_size()); }
     void reset();
     int get_size() const { return _size; }
     int get_cellSize() const { return _cellSize; }
@@ -40,7 +39,6 @@ private:
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
     Hero _hero;
-    //Enemy *_enemy;
     EnemyHoriz _e1, _e2;
     EnemyVertic _e3;
 };

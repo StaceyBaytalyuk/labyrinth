@@ -4,17 +4,7 @@
 #include <grxkeys.h>
 using namespace std;
 
-Labyrinth::Labyrinth() :
-_status(), _game(&_status)
-{ cout << "Labyrinth is created!" << endl; }
-
-Labyrinth::~Labyrinth() {
-    cout << "Labyrinth is destroyed!" << endl;
-}
-
 int Labyrinth::run() {
-    cout << "Labyrinth is working..." << endl;
-    //show all
     int count = _game.get_size();
     int cellSize = _game.get_cellSize();
     int statusSize = _status.get_size();
@@ -24,6 +14,7 @@ int Labyrinth::run() {
 
     _status.show();
     _game.show();
+
 //TODO обработка попробовать снова или выйти?
     return _game.run();
 }

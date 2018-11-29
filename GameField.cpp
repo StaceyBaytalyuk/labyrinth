@@ -8,30 +8,13 @@ using namespace std;
 
 GameField::GameField(StatusBar *status) :
 _status(status), _size(12), _cellSize(30), _e1(1, 1, 1, 9), _e2(1, 7, 1, 8), _e3(10, 10, 10, 2)
-{
-    cout << "GameField is created!" << endl;
-}
+{}
 
-GameField::~GameField() {
-    _status = nullptr;
-    cout << "GameField is destroyed!" << endl;
-}
+GameField::~GameField() { _status = nullptr; }
 
 int GameField::run() {
-    cout << "GameField is working... Association with "  << &_status << endl;
-    //start time
     int time = clock();
     while (true) {
-/*        //стрёрли предыдущ положение
-        int x = _enemy.get_x();
-        int y = _enemy.get_y();
-        _cell[y][x].toDefault();
-        _enemy.move();
-        //нарисов на новом месте
-        x = _enemy.get_x();
-        y = _enemy.get_y();
-        _cell[y][x].set_currentValue(-2);*/
-
         int x = _hero.get_x();
         int y = _hero.get_y();
         int res = 0;
@@ -61,7 +44,6 @@ int GameField::run() {
         y = _e1.get_y();
         _cell[y][x].toDefault();
         _e1.move();
-        //нарисов на новом месте
         x = _e1.get_x();
         y = _e1.get_y();
         _cell[y][x].set_currentValue(-2);
@@ -71,7 +53,6 @@ int GameField::run() {
         y = _e2.get_y();
         _cell[y][x].toDefault();
         _e2.move();
-        //нарисов на новом месте
         x = _e2.get_x();
         y = _e2.get_y();
         _cell[y][x].set_currentValue(-2);
@@ -81,24 +62,11 @@ int GameField::run() {
         y = _e3.get_y();
         _cell[y][x].toDefault();
         _e3.move();
-        //нарисов на новом месте
         x = _e3.get_x();
         y = _e3.get_y();
         _cell[y][x].set_currentValue(-2);
 
-/*        //стрёрли предыдущ положение
-        for(int i=0; i<3; i++){
-            x = _enemy[i].get_x();
-            y = _enemy[i].get_y();
-            _cell[y][x].toDefault();
-            _enemy[i].move();
-            //нарисов на новом месте
-            x = _enemy.get_x();
-            y = _enemy.get_y();
-            _cell[y][x].set_currentValue(-2);
-        }*/
-
-
+        //чтобы не разминулись
         x = _hero.get_x();
         y = _hero.get_y();
         if(_cell[y][x].get_currentValue()==-2) return 1;
@@ -184,7 +152,6 @@ void GameField::show() {
             }
         }
     }
-
     _hero.show();
     _e1.show();
     _e2.show();
