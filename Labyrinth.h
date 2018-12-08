@@ -5,7 +5,7 @@
 
 class Labyrinth {
 public:
-    Labyrinth() : _status(), _game(&_status) {}
+    Labyrinth(int width=10, int hight=10) : _status(), _game(width, hight, &_status) {}
     ~Labyrinth() {}
     int run();
 

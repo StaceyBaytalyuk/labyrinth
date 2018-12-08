@@ -16,5 +16,5 @@ void Hero::show() {
     Visible::show();
     int x = _x*(_cellSize+1);
     int y = _y*(_cellSize+1)+_statusSize+1;
-    GrTextXY(_cellSize*_x+0.45*_cellSize, _cellSize*_y+_statusSize+0.45*_cellSize, "H", GrBlack(), GrWhite());
+    GrTextXY(_cellSize*_x+0.15*_cellSize+_x, _cellSize*_y+_statusSize+_y+0.35*_cellSize, ":) ", GrBlack(), GrAllocColor(0, 200, 200));
 }

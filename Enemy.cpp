@@ -5,9 +5,7 @@ using namespace std;
 
 void Enemy::show() {
     Visible::show();
-    int x = _x*(_cellSize+1);
-    int y = _y*(_cellSize+1)+_statusSize+1;
-    GrTextXY(_cellSize*_x+0.45*_cellSize, _cellSize*_y+_statusSize+0.45*_cellSize, "E", GrBlack(), GrWhite());
+    GrTextXY(_cellSize*_x+0.25*_cellSize+_x, _cellSize*_y+_statusSize+0.25*_cellSize+_y, ":V", GrBlack(), GrAllocColor(256, 0, 0));
 }
 
 EnemyHoriz::EnemyHoriz(int x, int y, int beg, int end) {

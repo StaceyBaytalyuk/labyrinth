@@ -13,6 +13,7 @@ public:
     void loss();
     void reset();
     int get_size() const { return _size; }
+    void set_time(int time) { _time = time; }
 
 private:
     int _countScore();

@@ -6,7 +6,7 @@
 #include <grxkeys.h>
 using namespace std;
 
-GameField::GameField(StatusBar *status) :
+GameField::GameField(int width, int height, StatusBar *status) :
 _status(status), _size(12), _cellSize(30), _e1(1, 1, 1, 9), _e2(1, 7, 1, 8), _e3(10, 10, 10, 2)
 {}
 
@@ -82,6 +82,7 @@ int GameField::run() {
             cout << "Runtime: " <<  (clock() - time) / CLOCKS_PER_SEC << endl;
             return 1;
         }
+        _status->set_time(time);
         hide();
         show();
     }
@@ -138,17 +139,17 @@ void GameField::show() {
             int value = _cell[i][j].get_currentValue();
             if (value==-1) {
                 GrTextXY(_cellSize*j+j+0.35*_cellSize, _cellSize*i+i+statusSize+0.35*_cellSize, "O", GrBlack(), GrWhite());
-            } else if (value==-2) {
+            } /*else if (value==-2) {
                 GrTextXY(_cellSize*j+j+0.35*_cellSize, _cellSize*i+i+statusSize+0.35*_cellSize, "E", GrBlack(), GrWhite());
-            }
+            }*/
             else if (value==0) {
-                GrTextXY(_cellSize*j+j+0.35*_cellSize, _cellSize*i+i+statusSize+0.35*_cellSize, "#", GrBlack(), GrWhite());
+                GrTextXY(_cellSize*j+j+0.3*_cellSize, _cellSize*i+i+statusSize+0.35*_cellSize, "  ", GrBlack(), GrBlack());
             }
             else if (value==2) {
-                GrTextXY(_cellSize*j+j+0.35*_cellSize, _cellSize*i+i+statusSize+0.35*_cellSize, "S", GrBlack(), GrWhite());
+                GrTextXY(_cellSize*j+j+0.35*_cellSize, _cellSize*i+i+statusSize+0.35*_cellSize, "*", GrBlack(), GrAllocColor(256, 256, 0));
             }
             else if (value==3) {
-                GrTextXY(_cellSize*j+j+0.35*_cellSize, _cellSize*i+i+statusSize+0.35*_cellSize, "D", GrBlack(), GrWhite());
+                GrTextXY(_cellSize*j+j+0.15*_cellSize, _cellSize*i+i+statusSize+0.35*_cellSize, "I^I", GrBlack(), GrAllocColor(0, 256, 0));
             }
         }
     }
