@@ -28,7 +28,7 @@ public:
 class EnemyVertic : public Enemy {
 public:
     EnemyVertic(int x, int y, int beg, int end);
-    ~EnemyVertic() {};
+    ~EnemyVertic() {}
     void move();
 };
 

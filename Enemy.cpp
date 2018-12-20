@@ -43,11 +43,11 @@ void EnemyVertic::move() {
     else if ( _y == _end ) _direction = false;
 
     if (_direction) {
-        _y--;
+        _y++;
         Movable::move(get_x(), _y);
     }
     else {
-        _y++;
+        _y--;
         Movable::move(get_x(), _y);
     }
 }

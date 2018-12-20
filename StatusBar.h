@@ -1,6 +1,5 @@
 #ifndef OOP_STATUSBAR_H
 #define OOP_STATUSBAR_H
-
 #include "Visible.h"
 
 class StatusBar : public Visible {
@@ -16,7 +15,7 @@ public:
     void set_time(int time) { _time = time; }
 
 private:
-    int _countScore();
+    int _countScore(); // начисл. очков в зависим. от кол-ва звёзд и времени прохождения
     int _time;
     int _stars;
     int _size;

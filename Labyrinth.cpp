@@ -15,15 +15,18 @@ int Labyrinth::run() {
         _game.show();
         int res = _game.run();
 
-        if ( res==3 ) return 1;
-        else if ( res==2 ) {
+        if ( res==3 ) return 1; // quit
+        else if ( res==2 ) { // restart
             _status.reset();
             _game.reset();
-        } else {
+        } else { // win or loss
             cout << "Do you want to play again? Enter 0 or 1: ";
             int answer;
             cin >> answer;
             if(answer) {
+                if (res==0) { // если была победа - переход на новый уровень
+                    _game.next_level();
+                } // иначе проходим старый уровень
                 _status.reset();
                 _game.reset();
             } else return 0;

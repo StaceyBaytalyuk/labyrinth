@@ -3,7 +3,6 @@
 #include <grx20.h>
 #include <cstring>
 #include <cmath>
-
 using namespace std;
 
 void StatusBar::show() {
@@ -13,11 +12,9 @@ void StatusBar::show() {
     char buff[2];
     sprintf(buff, "%i", _stars);
     GrTextXY(0.35*GrMaxX(), 0.5*_size, buff, GrBlack(), GrWhite());
-
     GrTextXY(0.6*GrMaxX(), 0.5*_size, "Time: ", GrBlack(), GrWhite());
     sprintf(buff, "%i", _time);
     GrTextXY(0.75*GrMaxX(), 0.5*_size, buff, GrBlack(), GrWhite());
-
 }
 
 void StatusBar::loss() {

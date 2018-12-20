@@ -4,10 +4,7 @@
 using namespace std;
 
 Hero::Hero(int cellSize, int statusSize, int x, int y) :
-_x(x), _y(y),  _cellSize(cellSize), _statusSize(statusSize)
-{}
-
-void Hero::move(int x, int y) {
+_cellSize(cellSize), _statusSize(statusSize) {
     _x = x;
     _y = y;
 }
