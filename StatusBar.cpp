@@ -1,7 +1,6 @@
 #include "StatusBar.h"
 #include <iostream>
 #include <grx20.h>
-#include <grxkeys.h>
 #include <cstring>
 #include <cmath>
 
@@ -23,17 +22,17 @@ void StatusBar::show() {
 
 void StatusBar::loss() {
     cout << "You lost!" << endl;
-    GrTextXY(0.3*GrMaxX(), 0.5*_size, "You lost!", GrBlack(), GrWhite());
+    GrTextXY(0, 0.5*_size, "                   You lost!                   ", GrBlack(), GrAllocColor(255, 0, 0));
 }
 
 void StatusBar::win(int time) {
     _time = time;
     int score = _countScore();
     cout << "You win! Score: " << score << endl;
-    GrTextXY(0.3*GrMaxX(), 0.5*_size, "You win!", GrBlack(), GrWhite());
+    GrTextXY(0, 0.5*_size, "               You win! Score:                 ", GrBlack(), GrAllocColor(0, 255, 0));
     char buff[2];
     sprintf(buff, "%i", score);
-    GrTextXY(0.65*GrMaxX(), 0.5*_size, buff, GrBlack(), GrWhite());
+    GrTextXY(0.65*GrMaxX(), 0.5*_size, buff, GrBlack(), GrAllocColor(0, 255, 0));
 }
 
 int StatusBar::_countScore() {

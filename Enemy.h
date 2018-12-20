@@ -3,18 +3,14 @@
 
 #include "Movable.h"
 
-class Enemy : Movable {
+class Enemy : public Movable {
 public:
     Enemy() {}
-    virtual ~Enemy() {}
-    void move(int x, int y) { _x = x; _y = y; }
+    ~Enemy() {}
     void show();
-    int get_x() const { return _x; }
-    int get_y() const { return _y; }
+    virtual void move()=0;
 
 protected:
-    int _x;
-    int _y;
     bool _direction;
     int _begin;
     int _end;
@@ -22,14 +18,14 @@ protected:
     int _statusSize=60;
 };
 
-class EnemyHoriz : virtual public Enemy {
+class EnemyHoriz : public Enemy {
 public:
     EnemyHoriz(int x, int y, int beg, int end);
     ~EnemyHoriz() {}
     void move();
 };
 
-class EnemyVertic : virtual public Enemy {
+class EnemyVertic : public Enemy {
 public:
     EnemyVertic(int x, int y, int beg, int end);
     ~EnemyVertic() {};

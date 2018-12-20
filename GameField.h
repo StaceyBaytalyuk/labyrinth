@@ -22,9 +22,12 @@ private:
     void _takeStar(int x, int y);
 
     StatusBar *_status;
-    int _size;
     int _cellSize;
-    Cell _cell[12][12] = {
+    static const int _size=12;
+    static const int _enemy_counter = 3;
+    Enemy *_enemy[_enemy_counter];
+    Hero _hero;
+    Cell _cell[_size][_size] = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 3, 0},
             {0, 1, 1,-1, 1, 0, 1, 1, 1,-1, 1, 0},
@@ -38,9 +41,6 @@ private:
             {0, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
-    Hero _hero;
-    EnemyHoriz _e1, _e2;
-    EnemyVertic _e3;
 };
 
 #endif //OOP_GAMEFIELD_H

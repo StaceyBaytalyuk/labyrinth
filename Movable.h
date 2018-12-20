@@ -8,6 +8,8 @@ public:
     Movable() {}
     virtual ~Movable() {}
     void move(int x, int y) { _x=x; _y=y; }
+    int get_x() const { return _x; }
+    int get_y() const { return _y; }
 
 protected:
     int _x;

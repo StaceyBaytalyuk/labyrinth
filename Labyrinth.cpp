@@ -1,20 +1,32 @@
 #include "Labyrinth.h"
 #include <iostream>
 #include <grx20.h>
-#include <grxkeys.h>
 using namespace std;
 
 int Labyrinth::run() {
     int count = _game.get_size();
     int cellSize = _game.get_cellSize();
     int statusSize = _status.get_size();
-
     GrSetMode(GR_width_height_graphics, count*cellSize + count + 1, count*cellSize + statusSize + count + 2);
-    GrClearContext(GrWhite());
 
-    _status.show();
-    _game.show();
+    while (true) {
+        GrClearContext(GrWhite());
+        _status.show();
+        _game.show();
+        int res = _game.run();
 
-//TODO обработка попробовать снова или выйти?
-    return _game.run();
+        if ( res==3 ) return 1;
+        else if ( res==2 ) {
+            _status.reset();
+            _game.reset();
+        } else {
+            cout << "Do you want to play again? Enter 0 or 1: ";
+            int answer;
+            cin >> answer;
+            if(answer) {
+                _status.reset();
+                _game.reset();
+            } else return 0;
+        }
+    }
 }

@@ -30,11 +30,11 @@ void EnemyHoriz::move() {
 
     if (_direction) {
         _x++;
-        Enemy::move(_x, get_y());
+        Movable::move(_x, get_y());
     }
     else {
         _x--;
-        Enemy::move(_x, get_y());
+        Movable::move(_x, get_y());
     }
 }
 
@@ -44,10 +44,10 @@ void EnemyVertic::move() {
 
     if (_direction) {
         _y--;
-        Enemy::move(get_x(), _y);
+        Movable::move(get_x(), _y);
     }
     else {
         _y++;
-        Enemy::move(get_x(), _y);
+        Movable::move(get_x(), _y);
     }
 }
