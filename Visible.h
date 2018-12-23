@@ -5,7 +5,7 @@
 class Visible {
 public:
     Visible() {}
-    ~Visible() {}
+    virtual ~Visible() {}
     void show(){ _shown = true; }
     void hide(){ _shown = false; }
     bool isShown() { return _shown; }

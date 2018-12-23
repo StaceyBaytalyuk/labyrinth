@@ -6,7 +6,7 @@
 class Enemy : public Movable {
 public:
     Enemy() {}
-    ~Enemy() {}
+    virtual ~Enemy() {}
     void show();
     virtual void move()=0;
 
